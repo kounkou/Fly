@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="RegisterUser.qml">buyme/qml/RegisterUser.qml</file>
+        <file alias="main.qml">buyme/qml/main.qml</file>
+        <file alias="MenuBarItem.qml">buyme/qml/MenuBarItem.qml</file>
+        <file alias="PopupItem.qml">buyme/qml/PopupItem.qml</file>
+        <file alias="LoginItem.qml">buyme/qml/LoginItem.qml</file>
+        <file alias="Task.qml">buyme/qml/Task.qml</file>
+        <file alias="Overview.qml">buyme/qml/Overview.qml</file>
+    </qresource>
+</RCC>
