@@ -58,10 +58,10 @@ Rectangle {
         id: taskTitle
         anchors.top : menu.bottom
         anchors.topMargin: 5
-        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.left: parent.left
         font.pixelSize: 14
         font.family: robotRegular.name
-        text: qsTr(itemTitle)
+        text: qsTr(itemTitle) + " (2019/01/21)"
         background: Rectangle {
             border.width: 0
         }
@@ -83,12 +83,12 @@ Rectangle {
         id: details
 
         anchors.top: sep.bottom
-        anchors.margins: 16
+        anchors.margins: 0
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.left: parent.left
         anchors.right: parent.right
         clip: true
-        height: 200
+        height: 350
 
         TextArea.flickable: TextArea {
             id: textareadetail
@@ -100,14 +100,12 @@ Rectangle {
 
             background: Rectangle {
                 implicitWidth : 290
-                implicitHeight: 90
+                implicitHeight: 150
                 border.width: 0
                 radius: 5
-                color: "#d5d5d5"
+                color: "#ffffff"
                 opacity: 0.12
             }
-
-
         }
 
         ScrollBar.vertical: ScrollBar { }
