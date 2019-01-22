@@ -13,6 +13,7 @@
 
 import QtQuick 2.9
 import QtQuick.Controls 1.4
+import QtQuick.Controls.Material 2.2
 
 ApplicationWindow {
 
@@ -23,6 +24,11 @@ ApplicationWindow {
     height: 500
     title: qsTr("BuyMe")
 
+    property string itemTitle : ""
+    property string itemDetail: ""
+    property string itemColor : ""
+    property bool   dataChange: false
+
     color: "#161616"
 
     // After loading show initial Login Page
@@ -30,14 +36,28 @@ ApplicationWindow {
         stackView.push({item: componentMap[label.text]});
     }
 
-    property Component login        : LoginItem     {}
-    property Component register     : RegisterUser  {}
-    property Component overview     : Overview      {}
+    FontLoader {
+        id: robotoLight
+        source: "qrc:/Roboto-Light"
+    }
+
+    FontLoader {
+        id: robotRegular
+        source: "qrc:/Roboto-Regular"
+    }
+
+    property Component login    : LoginItem    {}
+    property Component register : RegisterUser {}
+    property Component overview : Overview     {}
+    property Component splash   : Splashscreen {}
+    property Component task     : Task         {}
 
     property var componentMap: {
         "LoginItem"    : login,
         "RegisterUser" : register,
-        "Overview"     : overview
+        "Overview"     : overview,
+        "Splashscreen" : splash,
+        "Task"         : task
     }
 
     StackView {
@@ -53,7 +73,7 @@ ApplicationWindow {
 
             Text {
                 id: label
-                text: "LoginItem"
+                text: "Splashscreen"
             }
 
             MouseArea {

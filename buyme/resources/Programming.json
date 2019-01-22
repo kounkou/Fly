@@ -1,0 +1,18 @@
+{
+   "Programming": {
+      "details": "Tasks will be readen from the json file",
+      "color": "red"
+   },
+   "Finance": {
+      "details": "for each task, the operation will work",
+      "color": "green"
+   },
+   "Art": {
+      "details": "It should work as a database",
+      "color": "blue"
+   },
+   "Artificial Intelligence": {
+      "details": "I'll be the best, no matter who I am with",
+      "color": "yellow"
+   }
+}

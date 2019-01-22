@@ -7,5 +7,23 @@
         <file alias="LoginItem.qml">buyme/qml/LoginItem.qml</file>
         <file alias="Task.qml">buyme/qml/Task.qml</file>
         <file alias="Overview.qml">buyme/qml/Overview.qml</file>
+        <file alias="Splashscreen.qml">buyme/qml/Splashscreen.qml</file>
+        <file alias="AddItem.qml">buyme/qml/AddItem.qml</file>
+        <file alias="Programming.json">buyme/resources/Programming.json</file>
+        <file alias="Finance.json">buyme/resources/Finance.json</file>
+        <file alias="task3.json">buyme/resources/task3.json</file>
+        <file alias="task4.json">buyme/resources/task4.json</file>
+        <file alias="Roboto-Black">buyme/resources/font/Roboto-Black.ttf</file>
+        <file alias="Roboto-BlackItalic">buyme/resources/font/Roboto-BlackItalic.ttf</file>
+        <file alias="Roboto-Bold">buyme/resources/font/Roboto-Bold.ttf</file>
+        <file alias="Roboto-BoldItalic">buyme/resources/font/Roboto-BoldItalic.ttf</file>
+        <file alias="Roboto-Italic">buyme/resources/font/Roboto-Italic.ttf</file>
+        <file alias="Roboto-Light">buyme/resources/font/Roboto-Light.ttf</file>
+        <file alias="Roboto-LightItalic">buyme/resources/font/Roboto-LightItalic.ttf</file>
+        <file alias="Roboto-Medium">buyme/resources/font/Roboto-Medium.ttf</file>
+        <file alias="Roboto-MediumItalic">buyme/resources/font/Roboto-MediumItalic.ttf</file>
+        <file alias="Roboto-Regular">buyme/resources/font/Roboto-Regular.ttf</file>
+        <file alias="Roboto-Thin">buyme/resources/font/Roboto-Thin.ttf</file>
+        <file alias="Roboto-ThinItalic">buyme/resources/font/Roboto-ThinItalic.ttf</file>
     </qresource>
 </RCC>

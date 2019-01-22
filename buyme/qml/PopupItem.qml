@@ -29,6 +29,7 @@ Popup {
         font.pointSize: 18
         font.bold: true
         color: "#232F34"
+        font.family: robotoLight.name
     }
 
     Text {
@@ -37,6 +38,7 @@ Popup {
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
         color: "gray"
+        font.family: robotoLight.name
     }
 
     Row {
@@ -49,7 +51,8 @@ Popup {
             id: lcontrol
             width: 80
             height: 35
-            text: qsTr("OK")
+            text: qsTr("OK")            
+            font.family: robotoLight.name
             background: Rectangle {
                 implicitWidth: parent.width
                 implicitHeight: parent.height
@@ -75,6 +78,7 @@ Popup {
             width: 80
             height: 35
             text: qsTr("CANCEL")
+            font.family: robotoLight.name
 
             background: Rectangle {
                 implicitWidth: parent.width

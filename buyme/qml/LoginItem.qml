@@ -20,9 +20,28 @@ Rectangle {
 
     anchors.fill: parent
 
+    function validateInput() {
+        if (usernameText.text === "") {
+            infoUsername.color = "#ff0000"
+            return
+        } else {
+            infoUsername.color = "lightgray"
+        }
+
+        if (passText.text === "") {
+            infoPass.color = "#ff0000"
+            return
+        } else {
+            infoPass.color = "lightgray"
+        }
+
+        stackView.push("qrc:/Overview.qml")
+    }
+
     Component.onCompleted: {
         menu.currentPageName  = "Login"
         menu.previousPageLink = false
+        menu.forwardButton    = false
     }
 
     PopupItem {
@@ -50,20 +69,26 @@ Rectangle {
 
             TextField {
                 id: usernameText
-                placeholderText: qsTr("Username")
+                placeholderText: qsTr("Username*")
+                font.family: robotoLight.name
+                font.pixelSize: 12
                 background: Rectangle {
+                    id: usernamePers
                     implicitWidth: 200
                     implicitHeight: 30
                     border.width: 1
-                    border.color: usernameText.focus ? "#000000" : "lightgray"
+                    border.color: "lightgray"
                     radius: 5
+                    smooth: true
+                    antialiasing: true
                 }
             }
             Text {
                 id: infoUsername
+                font.family: robotoLight.name
                 font.pixelSize: 10
                 color: "lightgray"
-                text: qsTr("requires a username or email")
+                text: qsTr("*required")
             }
         }
     }
@@ -82,21 +107,32 @@ Rectangle {
 
             TextField {
                 id: passText
-                placeholderText: qsTr("Password")
+                font.family: robotoLight.name
+                placeholderText: qsTr("Password*")
                 echoMode: TextInput.Password
+                font.pixelSize: 12
                 background: Rectangle {
+                    id: passPers
                     implicitWidth: 200
                     implicitHeight: 30
                     border.width: 1
-                    border.color: passText.focus ? "#000000" : "lightgray"
+                    border.color: "lightgray"
                     radius: 5
+                    smooth: true
+                }
+
+                // on enter
+                Keys.onReturnPressed: {
+                    console.log("Enter pressed")
+                    validateInput()
                 }
             }
             Text {
                 id: infoPass
+                font.family: robotoLight.name
                 font.pixelSize: 10
                 color: "lightgray"
-                text: qsTr("requires a password")
+                text: qsTr("required*")
             }
         }
     }
@@ -114,24 +150,20 @@ Rectangle {
             anchors.centerIn: parent
             height: 25
             onClicked: {
-                if (usernameText.text === "" || passText.text === "") {
-                    popup.open()
-                    popup.lcontrol.visible = false
-                    popup.popupMessage.text = "Wrong Username or Password"
-                    popup.rcontrol.text = "OK"
-                    return
-                }
-                stackView.push("qrc:/Overview.qml")
+                validateInput()
             }
 
             contentItem: Text {
+                font.family: robotoLight.name
                 text: "login"
                 font.pixelSize: 16
+                font.bold: true
                 opacity: enabled ? 1.0 : 0.3
                 color: "#FFFFFF"
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
                 elide: Text.ElideRight
+                smooth: true
             }
 
             background: Rectangle {
@@ -139,8 +171,9 @@ Rectangle {
                 implicitHeight: 25
                 opacity: enabled ? 1 : 0.3
                 border.width: 0
-                color: "#000000"
+                color: "#616161"
                 radius: 5
+                smooth: true
             }
         }
     }
