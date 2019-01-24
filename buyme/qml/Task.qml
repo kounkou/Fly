@@ -16,10 +16,10 @@ Rectangle {
         var db = LocalStorage.openDatabaseSync("tasksDB", "1.0", "Tasks saved", 1000000)
 
         db.transaction(
-            function (tx) {
-                var rs = tx.executeSql("UPDATE tasks SET details = \"" + textareadetail.text + "\" WHERE title = '" + itemTitle + "'")
-            }
-        )
+                    function (tx) {
+                        var rs = tx.executeSql("UPDATE tasks SET details = \"" + textareadetail.text + "\" WHERE title = '" + itemTitle + "'")
+                    }
+                    )
         dataChange = true
     }
 
@@ -121,6 +121,61 @@ Rectangle {
         anchors.top: details.bottom
         anchors.topMargin: 16
         anchors.horizontalCenter: parent.horizontalCenter
+    }
+
+    Rectangle {
+        id: recall1
+        height: 10
+        width: 50
+        color: "lightgrey"
+        anchors.top: sep2.bottom
+        anchors.bottom: parent.bottom
+        anchors.margins: 5
+        anchors.left: parent.left
+        radius: 5
+        Text {
+            id: r1Message
+            text: qsTr("1 days")
+            anchors.centerIn: parent
+            font.family: robotoLight.name
+            font.pixelSize: 10
+        }
+    }
+    Rectangle {
+        id: recall2
+        height: 10
+        width: 50
+        color: "lightgrey"
+        anchors.top: sep2.bottom
+        anchors.bottom: parent.bottom
+        anchors.margins: 5
+        anchors.left: recall1.right
+        radius: 5
+        Text {
+            id: r2Message
+            text: qsTr("1 days")
+            anchors.centerIn: parent
+            font.family: robotoLight.name
+            font.pixelSize: 10
+        }
+    }
+    Rectangle {
+        id: recall3
+        height: 10
+        width: 50
+        color: "lightgrey"
+        anchors.top: sep2.bottom
+        anchors.bottom: parent.bottom
+        anchors.margins: 5
+        anchors.left: recall2.right
+        radius: 5
+        Text {
+            id: r3Message
+            text: qsTr("2 days")
+            anchors.centerIn: parent
+            font.family: robotoLight.name
+            font.pixelSize: 10
+        }
     }
 
     Row {

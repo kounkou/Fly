@@ -41,7 +41,7 @@ Rectangle {
     Component.onCompleted: {
         menu.currentPageName  = "Login"
         menu.previousPageLink = false
-        menu.forwardButton    = false
+        menu.forwardButton    = false                
     }
 
     PopupItem {

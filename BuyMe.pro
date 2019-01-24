@@ -1,4 +1,4 @@
-QT += quick qml network positioning location
+QT += quick qml network positioning location network networkauth
 CONFIG += c++11
 
 # The following define makes your compiler emit warnings if you use
@@ -14,10 +14,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES   += buyme/src/main.cpp         \
              buyme/src/buyme.cpp        \
-             buyme/src/task.cpp
+             buyme/src/task.cpp         \
+             buyme/src/twitter.cpp
 
 HEADERS   += buyme/includes/buyme.h     \
-             buyme/includes/task.h
+             buyme/includes/task.h      \
+             buyme/includes/twitter.h
 
 RESOURCES += qml.qrc
 
