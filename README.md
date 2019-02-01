@@ -12,8 +12,8 @@ The list of items to be displayed
   "data": {
     "items": {
       "item1": { "name": "orange", "price": 5.00, "date": "2019/01/31" },
-      "item2": { "name": "banana", "price": 5.00, "date": "2019/01/31" },
-      "item3": { "name": "apples", "price": 5.00, "date": "2019/01/31" }
+      "item2": { "name": "banana", "price": 9.80, "date": "2019/01/31" },
+      "item3": { "name": "apple",  "price": 7.10, "date": "2019/01/31" }
     }
   }
 }
