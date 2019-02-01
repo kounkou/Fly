@@ -47,7 +47,6 @@ public:
             cout << "Welcome back " << username << " !" << endl;
             return true;
         }
-
         return false;
     }
 
@@ -77,10 +76,8 @@ public:
                 }
                 file1.close();
             }
-
             return true;
         }
-
         return false;
     }
 
@@ -149,11 +146,7 @@ public:
     //////////////////////
     bool logout()
     {
-        if (remove("login.data") != 0) {
-            return false;
-        } else {
-            return true;
-        }
+        return remove("login.data") != 0 ? return false : return true;
     }
 
     //////////////////////
