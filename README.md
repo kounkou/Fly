@@ -77,3 +77,31 @@ registration failure
 }
 ```
 
+#### Item submission to the store
+
+After submitting an item on the store, the following answers are possible
+
+```json
+{
+  "status": "ok",
+  "type": "submission",
+  "data": {
+    "items": {
+      "item1": { "reason": "submission failure" }
+    }
+  }
+}
+```
+
+
+```json
+{
+  "status": "ok",
+  "type": "submission",
+  "data": {
+    "items": {
+      "item1": { "reason": "submission successful" }
+    }
+  }
+}
+```
