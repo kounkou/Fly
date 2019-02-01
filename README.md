@@ -105,3 +105,36 @@ After submitting an item on the store, the following answers are possible
   }
 }
 ```
+
+#### System updating/maintenance
+
+When the system is performing update of maintenance, the following json is sent.
+System failure limit access to some features of the application
+
+```json
+{
+  "status": "ok",
+  "type": "status",
+  "data": {
+    "items": {
+      "item1": { "reason": "maintenance in progress" }
+    }
+  }
+}
+```
+
+#### System failure
+
+In case of system failure, no feature is available
+
+```json
+{
+  "status": "nok",
+  "type": "status",
+  "data": {
+    "items": {
+      "item1": { "reason": "system failure" }
+    }
+  }
+}
+```
