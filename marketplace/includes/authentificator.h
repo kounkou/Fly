@@ -1,21 +1,21 @@
-#ifndef __CREDENTIAL_H__
-#define __CREDENTIAL_H__
+#ifndef __AUTHENTIFIER_H__
+#define __AUTHENTIFIER_H__
 
 #include <bits/stdc++.h>
 
 using namespace std;
 
 namespace mp {
-class Authentificator {
+class Authentifier {
 public:
-    Authentificator()
+    Authentifier()
         : _uid()
         , _username()
         , _password()
     {
     }
 
-    ~Authentificator()
+    ~Authentifier()
     {
     }
 
