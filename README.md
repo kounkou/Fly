@@ -1,6 +1,17 @@
 
 ## Json Interface description
 
+The application uses REST API to manage the communication between the client app
+and the server. The following REST responses show the expected data to be
+received and processed by the client application.
+The application show cases 4 different types of REST responses :
+
+- itemlist 
+- auth
+- submission
+- status
+
+
 #### Items list
 
 The list of items to be displayed
