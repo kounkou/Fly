@@ -12,7 +12,8 @@ The application show cases 4 different types of REST responses :
 - status
 
 
-#### Items list
+
+#### 1. Items list
 
 The list of items to be displayed
 
@@ -30,7 +31,7 @@ The list of items to be displayed
 }
 ```
 
-#### Auth statuses
+#### 2. Auth statuses
 
 Access denied response
 
@@ -88,7 +89,7 @@ registration failure
 }
 ```
 
-#### Item submission to the store
+#### 3. Item submission to the store
 
 After submitting an item on the store, the following answers are possible
 
@@ -117,7 +118,7 @@ After submitting an item on the store, the following answers are possible
 }
 ```
 
-#### System updating/maintenance
+#### 4. System updating/maintenance (status)
 
 When the system is performing update of maintenance, the following json is sent.
 System failure limit access to some features of the application
@@ -133,8 +134,6 @@ System failure limit access to some features of the application
   }
 }
 ```
-
-#### System failure
 
 In case of system failure, no feature is available
 
