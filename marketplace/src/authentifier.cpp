@@ -65,17 +65,8 @@ bool Authentifier::manual_login(const string& username, const string& password)
     return false;
 }
 
-void Authentifier::register_user()
+bool Authentifier::register_user(const string& username, const string& password)
 {
-    string username;
-    string password;
-
-    // case 3. registering new login
-    cout << "Please enter Username : ";
-    cin  >> username;
-    cout << "Please enter password : ";
-    cin  >> password;
-
     ifstream filc("known.data");
     string line;
     if (filc.is_open()) {
@@ -87,7 +78,7 @@ void Authentifier::register_user()
             if (username == tusername) {
                 cout << "user exists !" << endl;
                 filc.close();
-                return;
+                return false;
             }
         }
         filc.close();
@@ -99,6 +90,8 @@ void Authentifier::register_user()
         file << password << "\n";
     }
     file.close();
+
+    return true;
 }
 
 bool Authentifier::login(const string& username, const string& password)

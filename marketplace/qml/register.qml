@@ -30,25 +30,25 @@ Rectangle {
         horizontalAlignment: Text.AlignHCenter
         font.pixelSize: 12
     }
+    TextField {
+        id: confirmPass
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.top: pass.bottom
+        width : 100
+        height: 40
+        placeholderText: "password"
+        horizontalAlignment: Text.AlignHCenter
+        font.pixelSize: 12
+    }
 
     Button {
         id: validate
-        anchors.top: pass.bottom
-        anchors.horizontalCenter: parent.horizontalCenter
-        text: qsTr("enter")
-
-        onClicked: {
-            backend.requestAuthentification(user.text, pass.text)
-        }
-    }    
-    Button {
-        id: register
-        anchors.top: validate.bottom
+        anchors.top: confirmPass.bottom
         anchors.horizontalCenter: parent.horizontalCenter
         text: qsTr("register")
 
         onClicked: {
-            backend.setCurrentPage("register.qml")
+            backend.requestRegistration(user.text, pass.text)
         }
     }
 }

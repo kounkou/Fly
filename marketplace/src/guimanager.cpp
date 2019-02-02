@@ -17,6 +17,13 @@ void GuiManager::requestAuthentification(const QString& username, const QString&
     }
 }
 
+void GuiManager::requestRegistration(const QString& username, const QString& password)
+{
+    if (_auth.register_user(username.toStdString(), password.toStdString())) {
+        setCurrentPage("login.qml");
+    }
+}
+
 void GuiManager::requestForData()
 {
     QUrl url("http://api.waqi.info/feed/shanghai/?token=demo");

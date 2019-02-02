@@ -14,7 +14,7 @@ public:
     bool exists(const std::string& name);
     bool automatic_login();
     bool manual_login(const string &username, const string &password);
-    void register_user();
+    bool register_user(const string& username, const string& password);
     bool login(const string& username, const string& password);
     bool logout();
     void printInfos();

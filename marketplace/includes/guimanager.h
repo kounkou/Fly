@@ -20,11 +20,12 @@ public:
    ~GuiManager();
 
     void initInterface();
-    void setCurrentPage(const QString &page);
+    Q_INVOKABLE void setCurrentPage(const QString &page);
     QString getCurrentPage() const;
     void requestForData();
 
     Q_INVOKABLE void requestAuthentification(const QString& username, const QString& password);
+    Q_INVOKABLE void requestRegistration(const QString& username, const QString& password);
 
 signals:
     void currentPageChanged();
