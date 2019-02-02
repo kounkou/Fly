@@ -53,12 +53,12 @@ bool Authentifier::manual_login(const string& username, const string& password)
         _uid      = username + password; // encrypt with better algo
 
         if (!exists("login.data")) {
-            ofstream file1("login.data", ofstream::app);
-            if (file1.is_open()) {
-                file1 << username << "\n";
-                file1 << password;
+            ofstream file("login.data", ofstream::app);
+            if (file.is_open()) {
+                file << username << "\n";
+                file << password;
             }
-            file1.close();
+            file.close();
         }
         return true;
     }
@@ -117,6 +117,8 @@ bool Authentifier::login(const string& username, const string& password)
             }
         }
     }
+    file.close();
+    
     return false;
 }
 
