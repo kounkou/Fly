@@ -22,6 +22,7 @@ public:
     void initInterface();
     void setCurrentPage(const QString &page);
     QString getCurrentPage() const;
+    void requestForData();
 
     Q_INVOKABLE void requestAuthentification(const QString& username, const QString& password);
 

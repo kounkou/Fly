@@ -13,9 +13,14 @@ void GuiManager::requestAuthentification(const QString& username, const QString&
 {
     if (_auth.manual_login(username.toStdString(), password.toStdString())) {
         setCurrentPage("home.qml");
-        QUrl url("http://api.waqi.info/feed/shanghai/?token=demo");
-        _net.sendRESTQuery(url);
+        requestForData();
     }
+}
+
+void GuiManager::requestForData()
+{
+    QUrl url("http://api.waqi.info/feed/shanghai/?token=demo");
+    _net.sendRESTQuery(url);
 }
 
 QString GuiManager::getCurrentPage() const
@@ -43,8 +48,7 @@ void GuiManager::initInterface()
         setCurrentPage("login.qml");
     } else {
         setCurrentPage("home.qml");
-        QUrl url("http://api.waqi.info/feed/shanghai/?token=demo");
-        _net.sendRESTQuery(url);
+        requestForData();
     }
 }
 
