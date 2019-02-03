@@ -9,7 +9,7 @@ ApplicationWindow {
     width: 325
     height: 500
     color: "grey"
-    title: backend.currentPage
+    title: backend.currentPage   
 
     Loader {
         id: pageLoader

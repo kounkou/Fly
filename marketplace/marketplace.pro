@@ -34,4 +34,8 @@ RESOURCES += \
     marketplace.qrc
 
 DISTFILES += \
-    qml/main.qml
+    qml/main.qml \
+    qml/register.qml \
+    qml/main.qml \
+    qml/login.qml \
+    qml/home.qml
