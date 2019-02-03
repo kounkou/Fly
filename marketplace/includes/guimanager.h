@@ -24,7 +24,7 @@ public:
     QString getCurrentPage() const;
     void requestForData();
 
-    Q_INVOKABLE void requestAuthentification(const QString& username, const QString& password);
+    Q_INVOKABLE void requestAuthentification(const QString& username, const QString &password);
     Q_INVOKABLE void requestRegistration(const QString& username, const QString& password);
 
 signals:
@@ -35,7 +35,7 @@ private:
     QQuickView*  _view;
     QString      _currentPage;
     Authentifier _auth;
-    DataBridge   _net;
+    DataBridge   _net;    
 };
 }
 

@@ -1,4 +1,7 @@
 #include "authentifier.h"
+#include <QCryptographicHash>
+#include <QByteArray>
+#include <QObject>
 
 namespace mp {
 Authentifier::Authentifier()
@@ -45,7 +48,13 @@ bool Authentifier::automatic_login()
 
 bool Authentifier::manual_login(const string& username, const string& password)
 {
-    if (login(username, password)) {
+    QCryptographicHash hashObj(QCryptographicHash::Algorithm::Keccak_512);
+    QByteArray arr;
+    arr.append(QString::fromStdString(password));
+    QByteArray result = hashObj.hash(arr, QCryptographicHash::Algorithm::Keccak_512).toHex();
+    QString  cryptedPass(result);
+
+    if (login(username, cryptedPass.toStdString())) {
         cout << "Welcome " << username << " !" << endl;
 
         _username = username;
@@ -56,7 +65,7 @@ bool Authentifier::manual_login(const string& username, const string& password)
             ofstream file1("login.data", ofstream::app);
             if (file1.is_open()) {
                 file1 << username << "\n";
-                file1 << password;
+                file1 << cryptedPass.toStdString();
             }
             file1.close();
         }
@@ -87,7 +96,14 @@ bool Authentifier::register_user(const string& username, const string& password)
     ofstream file("known.data", ofstream::app);
     if (file.is_open()) {
         file << username << "\n";
-        file << password << "\n";
+
+        QCryptographicHash hashObj(QCryptographicHash::Algorithm::Keccak_512);
+        QByteArray arr;
+        arr.append(QString::fromStdString(password));
+        QByteArray result = hashObj.hash(arr, QCryptographicHash::Algorithm::Keccak_512).toHex();
+        QString cryptedPass(result);
+
+        file << cryptedPass.toStdString() << "\n";
     }
     file.close();
 
