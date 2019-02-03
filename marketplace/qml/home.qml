@@ -34,6 +34,106 @@ Rectangle {
         anchors.margins: 0
         height: 10 * root.height / 12
         width: root.width
+        clip: true
+
+        ListModel {
+            id: model
+
+            ListElement {
+                name: "Bill Smith"
+                number: "555 3264"
+            }
+            ListElement {
+                name: "John Brown"
+                number: "555 8426"
+            }
+            ListElement {
+                name: "Sam Wise"
+                number: "555 0473"
+            }
+            ListElement {
+                name: "Bill Smith"
+                number: "555 3264"
+            }
+            ListElement {
+                name: "John Brown"
+                number: "555 8426"
+            }
+            ListElement {
+                name: "Sam Wise"
+                number: "555 0473"
+            }
+            ListElement {
+                name: "Bill Smith"
+                number: "555 3264"
+            }
+            ListElement {
+                name: "John Brown"
+                number: "555 8426"
+            }
+            ListElement {
+                name: "Sam Wise"
+                number: "555 0473"
+            }
+            ListElement {
+                name: "Bill Smith"
+                number: "555 3264"
+            }
+            ListElement {
+                name: "John Brown"
+                number: "555 8426"
+            }
+            ListElement {
+                name: "Sam Wise"
+                number: "555 0473"
+            }
+            ListElement {
+                name: "Bill Smith"
+                number: "555 3264"
+            }
+            ListElement {
+                name: "John Brown"
+                number: "555 8426"
+            }
+            ListElement {
+                name: "Sam Wise"
+                number: "555 0473"
+            }
+        }
+
+        Rectangle {
+            anchors.fill: parent
+
+            Component {
+                id: contactDelegate
+
+                Rectangle {
+                    width : root.width
+                    height: 40
+                    anchors.margins: 10
+                    border.width: 1
+                    border.color: "lightgrey"
+
+                    Column {
+                        anchors.verticalCenter: parent.verticalCenter
+
+                        Text {
+                            text: name
+                            anchors.margins: 5
+                            anchors.left: parent.left
+                        }
+                    }
+                }
+            }
+
+            ListView {
+                anchors.fill: parent
+                model: model
+                delegate: contactDelegate
+                focus: true
+                ScrollIndicator.vertical: ScrollIndicator { }
+            }
+        }
     }
 
     Rectangle {
