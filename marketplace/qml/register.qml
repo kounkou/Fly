@@ -29,6 +29,8 @@ Rectangle {
         placeholderText: "password"
         horizontalAlignment: Text.AlignHCenter
         font.pixelSize: 12
+        echoMode: TextInput.Password
+        passwordMaskDelay: 500
     }
     TextField {
         id: confirmPass
@@ -39,6 +41,8 @@ Rectangle {
         placeholderText: "password"
         horizontalAlignment: Text.AlignHCenter
         font.pixelSize: 12
+        echoMode: TextInput.Password
+        passwordMaskDelay: 500
     }
 
     Button {

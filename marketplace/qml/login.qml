@@ -27,6 +27,8 @@ Rectangle {
         width : 100
         height: 40
         placeholderText: "password"
+        echoMode: TextInput.Password
+        passwordMaskDelay: 500
         horizontalAlignment: Text.AlignHCenter
         font.pixelSize: 12
     }
