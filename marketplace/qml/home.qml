@@ -13,6 +13,18 @@ Rectangle {
         height: root.height / 12
         width: root.width
         color: "grey"
+
+        Button {
+            id: logout
+            text: qsTr("logout")
+            anchors.right: parent.right
+            anchors.rightMargin: 5
+            height: parent.height - 10
+            anchors.verticalCenter: parent.verticalCenter
+            onClicked: {
+                backend.requestLogout()
+            }
+        }
     }
 
     Rectangle {

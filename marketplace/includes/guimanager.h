@@ -26,6 +26,7 @@ public:
 
     Q_INVOKABLE void requestAuthentification(const QString& username, const QString &password);
     Q_INVOKABLE void requestRegistration(const QString& username, const QString& password);
+    Q_INVOKABLE void requestLogout();
 
 signals:
     void currentPageChanged();
