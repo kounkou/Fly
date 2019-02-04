@@ -3,8 +3,7 @@ import QtQuick.Controls 2.2
 
 Rectangle {
     id: root
-    width: 325
-    height: 500
+    anchors.fill: parent
 
     Rectangle {
         id: head
@@ -37,8 +36,10 @@ Rectangle {
             validator: RegExpValidator {
                 regExp: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
             }
+            /*
             onTextChanged: acceptableInput ? userStyle.border.color = "green"
                                            : userStyle.border.color = "red"
+            */
 
             background: Rectangle {
                 id: userStyle

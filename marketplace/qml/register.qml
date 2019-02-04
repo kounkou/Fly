@@ -3,8 +3,7 @@ import QtQuick.Controls 2.2
 
 Rectangle {
     id: root
-    width: 325
-    height: 500
+    anchors.fill: parent
 
     Rectangle {
         id: head
@@ -23,23 +22,51 @@ Rectangle {
         height: 10 * root.height / 12
         width: root.width
 
-
         TextField {
-            id: user
+            id: username
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.top: parent.top
             anchors.topMargin: (pass.height + confirmPass.height + validate.height) / 2
             width : 200
             height: 40
-            placeholderText: "login"
+            placeholderText: "username"
+            horizontalAlignment: Text.AlignHCenter
+            font.pixelSize: 12
+
+            /*
+            onTextChanged: acceptableInput ? userStyle.border.color = "green"
+                                           : userStyle.border.color = "red"
+            */
+
+            background: Rectangle {
+                id: usernameStyle
+                implicitWidth: 200
+                implicitHeight: 30
+                border.width: 1
+                border.color: "lightgray"
+                radius: 5
+                smooth: true
+                antialiasing: true
+            }
+        }
+
+        TextField {
+            id: user
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.top: username.bottom
+            width : 200
+            height: 40
+            placeholderText: "email"
             horizontalAlignment: Text.AlignHCenter
             font.pixelSize: 12
             validator: RegExpValidator {
                 regExp: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
             }
 
+            /*
             onTextChanged: acceptableInput ? userStyle.border.color = "green"
                                            : userStyle.border.color = "red"
+            */
 
             background: Rectangle {
                 id: userStyle

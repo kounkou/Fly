@@ -112,8 +112,9 @@ bool Authentifier::register_user(const string& username, const string& password)
 
 bool Authentifier::login(const string& username, const string& password)
 {
-    ifstream file("known.data");
+    ifstream file;
 
+    file.open("known.data", ios::binary);
     string line;
     if (file.is_open()) {
         while (getline(file, line)) {

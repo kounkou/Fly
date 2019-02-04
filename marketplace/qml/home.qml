@@ -3,8 +3,7 @@ import QtQuick.Controls 2.2
 
 Rectangle {
     id: root
-    width: 325
-    height: 500
+    anchors.fill: parent
 
     Rectangle {
         id: head
@@ -111,7 +110,7 @@ Rectangle {
                     width : root.width
                     height: 40
                     anchors.margins: 10
-                    border.width: 1
+                    border.width: 0.5
                     border.color: "lightgrey"
 
                     Column {

@@ -13,6 +13,7 @@ ApplicationWindow {
 
     Loader {
         id: pageLoader
+        anchors.fill: parent
         source : backend.currentPage
     }
 }
