@@ -2,6 +2,7 @@
 #define __AUTHENTIFIER_H__
 
 #include <bits/stdc++.h>
+#include <QString>
 
 using namespace std;
 
@@ -18,6 +19,7 @@ public:
     bool login(const string& username, const string& password);
     bool logout();
     void printInfos();
+    QString encryptString(const string& str);
 
 private:
     string _uid;
