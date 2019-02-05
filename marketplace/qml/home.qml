@@ -122,6 +122,13 @@ Rectangle {
                             anchors.left: parent.left
                         }
                     }
+
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: {
+                            backend.setCurrentPage("itemdetails.qml")
+                        }
+                    }
                 }
             }
 

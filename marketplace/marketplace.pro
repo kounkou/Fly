@@ -38,4 +38,5 @@ DISTFILES += \
     qml/register.qml \
     qml/main.qml \
     qml/login.qml \
-    qml/home.qml
+    qml/home.qml \
+    qml/itemdetails.qml
