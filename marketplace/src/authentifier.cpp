@@ -73,7 +73,7 @@ bool Authentifier::manual_login(const string& username, const string& password)
                 file1 << username << "\n";
                 file1 << cryptedPass.toStdString();
             }
-            file1.close();
+            file.close();
         }
         return true;
     }
@@ -127,6 +127,8 @@ bool Authentifier::login(const string& username, const string& password)
             }
         }
     }
+    file.close();
+    
     return false;
 }
 
