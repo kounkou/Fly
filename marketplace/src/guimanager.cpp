@@ -33,7 +33,7 @@ void GuiManager::requestRegistration(const QString& username, const QString& pas
 
 void GuiManager::requestForData()
 {
-    QUrl url("http://api.waqi.info/feed/shanghai/?token=demo");
+    QUrl url("https://my-json-server.typicode.com/kounkou/demo/db");
     _net.sendRESTQuery(url);
 }
 
