@@ -1,4 +1,7 @@
 #include "authentifier.h"
+#include <QCryptographicHash>
+#include <QByteArray>
+#include <QObject>
 
 namespace mp {
 Authentifier::Authentifier()
@@ -43,9 +46,21 @@ bool Authentifier::automatic_login()
     return false;
 }
 
+QString Authentifier::encryptString(const string& str)
+{
+    QCryptographicHash hashObj(QCryptographicHash::Algorithm::Keccak_512);
+    QByteArray arr;
+    arr.append(QString::fromStdString(str));
+    QByteArray result = hashObj.hash(arr, QCryptographicHash::Algorithm::Keccak_512).toHex();
+    QString  cryptedPass(result);
+    return cryptedPass;
+}
+
 bool Authentifier::manual_login(const string& username, const string& password)
 {
-    if (login(username, password)) {
+    QString cryptedPass = encryptString(password);
+
+    if (login(username, cryptedPass.toStdString())) {
         cout << "Welcome " << username << " !" << endl;
 
         _username = username;
@@ -53,10 +68,10 @@ bool Authentifier::manual_login(const string& username, const string& password)
         _uid      = username + password; // encrypt with better algo
 
         if (!exists("login.data")) {
-            ofstream file("login.data", ofstream::app);
-            if (file.is_open()) {
-                file << username << "\n";
-                file << password;
+            ofstream file1("login.data", ofstream::app);
+            if (file1.is_open()) {
+                file1 << username << "\n";
+                file1 << cryptedPass.toStdString();
             }
             file.close();
         }
@@ -65,17 +80,8 @@ bool Authentifier::manual_login(const string& username, const string& password)
     return false;
 }
 
-void Authentifier::register_user()
+bool Authentifier::register_user(const string& username, const string& password)
 {
-    string username;
-    string password;
-
-    // case 3. registering new login
-    cout << "Please enter Username : ";
-    cin  >> username;
-    cout << "Please enter password : ";
-    cin  >> password;
-
     ifstream filc("known.data");
     string line;
     if (filc.is_open()) {
@@ -87,7 +93,7 @@ void Authentifier::register_user()
             if (username == tusername) {
                 cout << "user exists !" << endl;
                 filc.close();
-                return;
+                return false;
             }
         }
         filc.close();
@@ -96,15 +102,19 @@ void Authentifier::register_user()
     ofstream file("known.data", ofstream::app);
     if (file.is_open()) {
         file << username << "\n";
-        file << password << "\n";
+        QString cryptedPass = encryptString(password);
+        file << cryptedPass.toStdString() << "\n";
     }
     file.close();
+
+    return true;
 }
 
 bool Authentifier::login(const string& username, const string& password)
 {
-    ifstream file("known.data");
+    ifstream file;
 
+    file.open("known.data", ios::binary);
     string line;
     if (file.is_open()) {
         while (getline(file, line)) {

@@ -9,11 +9,25 @@ GuiManager::GuiManager(QObject* parent)
 {
 }
 
+void GuiManager::requestLogout()
+{
+    if (_auth.logout()) {
+        setCurrentPage("login.qml");
+    }
+}
+
 void GuiManager::requestAuthentification(const QString& username, const QString& password)
 {
     if (_auth.manual_login(username.toStdString(), password.toStdString())) {
         setCurrentPage("home.qml");
         requestForData();
+    }
+}
+
+void GuiManager::requestRegistration(const QString& username, const QString& password)
+{
+    if (_auth.register_user(username.toStdString(), password.toStdString())) {
+        setCurrentPage("login.qml");
     }
 }
 
