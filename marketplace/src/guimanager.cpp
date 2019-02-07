@@ -36,7 +36,7 @@ void GuiManager::requestRegistration(const QString& username, const QString& pas
 
 void GuiManager::requestForData()
 {
-    QUrl url("https://my-json-server.typicode.com/kounkou/demo/db");
+    QUrl url("https://my-json-server.typicode.com/kounkou/fly/db");
     _net->sendRESTQuery(url);
 }
 
