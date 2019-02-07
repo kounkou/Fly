@@ -134,7 +134,7 @@ Rectangle {
 
             ListView {
                 anchors.fill: parent
-                model: model
+                model: ltmodel
                 delegate: contactDelegate
                 focus: true
                 ScrollIndicator.vertical: ScrollIndicator { }

@@ -1,9 +1,11 @@
 #include "databridge.h"
 #include <QJsonArray>
+#include "itemmodel.h"
 
 namespace mp {
-DataBridge::DataBridge()
+DataBridge::DataBridge(ItemModel* listItems)
     : _net(new QNetworkAccessManager())
+    , _currlist(listItems)
 {
     QObject::connect(_net, SIGNAL(finished(QNetworkReply*)), this, SLOT(onResult(QNetworkReply*)));
 }
@@ -29,6 +31,11 @@ void DataBridge::processItemsList(QVariantMap specMap)
         cout << "name  : " << (e.toMap())["name"]  .toString().toStdString() << endl;
         cout << "price : " << (e.toMap())["price"] .toString().toStdString() << endl;
         cout << "date  : " << (e.toMap())["date"]  .toString().toStdString() << endl;
+
+        Item it;
+        it.name = (e.toMap())["name"]  .toString();
+        _currlist->addItem(it);
+
         cout << endl;
     }
 }
@@ -74,21 +81,23 @@ bool DataBridge::onResult(QNetworkReply* response)
 
         qDebug() << "processing valid data";
 
-        QVariantMap mainMap = jsonObj.toVariantMap();
-        QVariantMap dataMap = mainMap["data"]  .toMap();
-        QVariantMap specMap = dataMap["items"] .toMap();
-
         if (jsonObj.value(QString("type"))[0] == "status") {
             qDebug() << "processing status";
-            processSystemStatus(specMap);
+            auto t = jsonObj.value(QString("data"))[0].toObject().toVariantMap()["items"].toMap();
+            for (auto e : t) qDebug() << e;
+            processSystemStatus(t);
         } else if (jsonObj.value(QString("type"))[0] == "submission") {
             qDebug() << "processing submission";
-            processSubmission(specMap);
+            auto t = jsonObj.value(QString("data"))[0].toObject().toVariantMap()["items"].toMap();
+            for (auto e : t) qDebug() << e;
+            processSubmission(t);
         } else if (jsonObj.value(QString("type"))[0] == "auth") {
             qDebug() << "processing auth";
-            processAuthStatus(specMap);
+            auto t = jsonObj.value(QString("data"))[0].toObject().toVariantMap()["items"].toMap();
+            for (auto e : t) qDebug() << e;
+            processAuthStatus(t);
         } else if (jsonObj.value(QString("type"))[0] == "itemlist") {
-            qDebug() << "processing itemlist";            
+            qDebug() << "processing itemlist";
             auto t = jsonObj.value(QString("data"))[0].toObject().toVariantMap()["items"].toMap();
             for (auto e : t) qDebug() << e;
             processItemsList(t);

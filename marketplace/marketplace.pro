@@ -25,10 +25,12 @@ SOURCES += src/main.cpp            \
            src/authentifier.cpp    \
            src/databridge.cpp      \
            src/guimanager.cpp      \
+           src/itemmodel.cpp       \
 
 HEADERS += includes/authentifier.h \
            includes/databridge.h   \
            includes/guimanager.h   \
+           includes/itemmodel.h    \
 
 RESOURCES += \
     marketplace.qrc

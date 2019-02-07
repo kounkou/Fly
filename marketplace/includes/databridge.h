@@ -6,6 +6,7 @@
 #include <QNetworkReply>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include "itemmodel.h"
 
 using namespace std;
 
@@ -15,7 +16,7 @@ class DataBridge : public QObject {
     Q_OBJECT
 
 public:
-    DataBridge();
+    DataBridge(ItemModel *listItems);
     ~DataBridge();
 
     void sendRESTQuery(const QUrl& url);
@@ -29,6 +30,7 @@ public slots:
 
 private:
     QNetworkAccessManager* _net;
+    ItemModel* _currlist;
 };
 }
 

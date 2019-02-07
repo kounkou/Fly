@@ -7,6 +7,7 @@
 
 #include "authentifier.h"
 #include "databridge.h"
+#include "itemmodel.h"
 
 namespace mp {
 class GuiManager : public QObject {
@@ -36,7 +37,8 @@ private:
     QQuickView*  _view;
     QString      _currentPage;
     Authentifier _auth;
-    DataBridge   _net;    
+    DataBridge*  _net;
+    ItemModel*   _list;
 };
 }
 

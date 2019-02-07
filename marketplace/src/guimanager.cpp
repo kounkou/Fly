@@ -7,11 +7,14 @@ GuiManager::GuiManager(QObject* parent)
     , _item(nullptr)
     , _currentPage("")
 {
+    _list = new ItemModel;
+    _net  = new DataBridge(_list);
 }
 
 void GuiManager::requestLogout()
 {
     if (_auth.logout()) {
+        _list->clearListOfItems();
         setCurrentPage("login.qml");
     }
 }
@@ -34,7 +37,7 @@ void GuiManager::requestRegistration(const QString& username, const QString& pas
 void GuiManager::requestForData()
 {
     QUrl url("https://my-json-server.typicode.com/kounkou/demo/db");
-    _net.sendRESTQuery(url);
+    _net->sendRESTQuery(url);
 }
 
 QString GuiManager::getCurrentPage() const
@@ -53,6 +56,7 @@ void GuiManager::setCurrentPage(const QString& currentPage)
 void GuiManager::initInterface()
 {
     _view  = new QQuickView();
+    _view->rootContext()->setContextProperty("ltmodel", _list);
     _view->rootContext()->setContextProperty("backend", this);
     _view->setSource(QUrl("qrc:/main.qml"));
     _item = _view->rootObject();
@@ -70,5 +74,7 @@ GuiManager::~GuiManager()
 {
     if (_view  != nullptr) delete _view;
     if (_item  != nullptr) delete _item;
+    if (_net   != nullptr) delete _net;
+    if (_list  != nullptr) delete _list;
 }
 }
