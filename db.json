@@ -5,7 +5,12 @@
     "items": {
       "item1": { "name": "orange", "price": 5.00, "date": "2019/01/31" },
       "item2": { "name": "banana", "price": 9.80, "date": "2019/01/30" },
-      "item3": { "name": "apple",  "price": 7.10, "date": "2019/02/03" }
+      "item3": { "name": "apple",  "price": 7.80, "date": "2019/02/03" },
+      "item4": { "name": "cucumber",  "price": 9.10, "date": "2019/02/03" },
+      "item5": { "name": "mapple",  "price": 5.90, "date": "2019/02/04" },
+      "item6": { "name": "orange",  "price": 1.18, "date": "2019/02/03" },
+      "item7": { "name": "yougurt",  "price": 3.10, "date": "2019/02/07" },
+      "item8": { "name": "biscuit",  "price": 3.10, "date": "2019/02/08" }
     } 
   } ]
 }
